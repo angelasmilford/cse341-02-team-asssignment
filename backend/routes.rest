@@ -1,1 +1,8 @@
+### Professional route
 GET http://localhost:8080/professional
+
+### Contacts route
+GET http://localhost:8080/contacts
+
+### Single Contact route
+GET http://localhost:8080/contacts/696c7376a31897bf6b4f6d57
