@@ -5,10 +5,9 @@ let dbConnection;
 async function connectToDB(uri) {
     try {
         const client = new MongoClient(uri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             tls: true, // force TLS
         });
+        
         await client.connect();
         console.log("Connected to MongoDB");
         dbConnection = client.db(); 
