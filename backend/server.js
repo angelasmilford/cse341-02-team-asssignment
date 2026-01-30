@@ -3,10 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const { connectToDB, getDB } = require('./connection');
 const contactsRoutes = require('./routes/contacts');
+
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(cors());
+app.use(express.json());
 
 connectToDB(process.env.MONGODB_URI).then(() => {
     console.log("Database connected successfully");
@@ -14,7 +16,8 @@ connectToDB(process.env.MONGODB_URI).then(() => {
     console.error("Failed to connect to the database:", e);
 });
 
-// Professional collection
+
+// Professional route
 app.get('/professional', async (req, res) => {
     // res.send(require('./data.json'));
 
@@ -32,8 +35,10 @@ app.get('/professional', async (req, res) => {
     }
 });
 
+
 // Contacts collection
 app.use('/contacts', contactsRoutes);
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/professional`);

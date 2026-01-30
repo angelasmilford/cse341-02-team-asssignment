@@ -1,8 +1,36 @@
 ### Professional route
 GET http://localhost:8080/professional
 
+
 ### Contacts route
 GET http://localhost:8080/contacts
 
+
 ### Single Contact route
 GET http://localhost:8080/contacts/696c7376a31897bf6b4f6d57
+
+
+### Create a new contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Suria",
+    "lastName": "Milford",
+    "email": "suria.bff123@gmail.com",
+    "favoriteColor": "Emerald",
+    "birthday": "29-11-2002"
+}
+
+
+### Update a contact
+PUT http://localhost:8080/contacts/697c4a628668b164e06cbe69
+Content-Type: application/json
+
+{
+    "birthday": "11/29/2002"
+}
+
+
+### Delete a contact
+DELETE http://localhost:8080/contacts/697c4a628668b164e06cbe69
